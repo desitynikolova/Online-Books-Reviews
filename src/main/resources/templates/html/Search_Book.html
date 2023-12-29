@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>User Menu</title>
+
+    <!-- Include CSS File -->
+    <link th:href="@{/css/menu_style.css}" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        h2 {
+            background-color: gray;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            align-items: center;
+        }
+
+        button {
+            margin-right: 20px;
+            margin-left: 20px;
+            background-color: #8b2513;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        select,
+        .form-control {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #8b2513;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        label {
+            color: white;
+            padding: 20px;
+        }
+
+        .button-operation {
+            margin-top: -10px;
+        }
+    </style>
+
+</head>
+
+<body>
+<nav>
+    <div class="logo">
+        Online Book Store
+    </div>
+
+    <ul>
+        <li><a href="/User_Home">Home - <span th:text="${User}"></span></a></li>
+        <li><a class="active" href="/User_Books">Search Book</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+</nav>
+
+<h2>Choose Book Operation</h2>
+
+<form action="/user_select_operation" method="post" id="form1">
+    <button type="submit" name="book_operation" value="Search">Search Book</button>
+    <button type="submit" name="book_operation" value="Display">Display Book</button>
+    <button type="submit" name="book_operation" value="R&R">Rate Book</button>
+</form>
+
+<!-- Search Book -->
+<div th:if="${selectSearch == 'Search'}">
+    <h2>Search Book By Title</h2>
+
+    <form class="form" action="/user_search_Book" method="post" onsubmit="return validateForm2()" id="Form_Search">
+        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Mahabharat">
+        <button class="button-operation" type="submit">Search</button>
+    </form>
+</div>
+
+<!-- Display Book -->
+<div th:if="${selectDisplay == 'Display'}">
+    <table>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Rating</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="BookArray : ${BookObject}">
+            <td th:text="${BookArray.getBook_title()}"></td>
+            <td th:text="${BookArray.getAuthor()}"></td>
+            <td th:text="${BookArray.getRate()}"></td>
+            <td th:text="${BookArray.getPrice()}"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Rate Book -->
+<div th:if="${selectRR == 'RR'}">
+    <h2>Rate By User</h2>
+
+    <form class="form" action="/user_Rate_Book" method="post" onsubmit="return validateForm3()" id="Form_Rate">
+        <label>Choose book by title</label>
+        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Book Tittle">
+        <label>User Rating</label>
+        <select name="rate">
+            <option value="1">1 Star</option>
+            <option value="2">2 Star</option>
+            <option value="3">3 Star</option>
+            <option value="4">4 Star</option>
+            <option value="5" selected>5 Star</option>
+        </select>
+        <button class="button-operation" type="submit">Rate</button>
+    </form>
+</div>
+
+<div th:if="${PrintSwal == 'Book_Found'}">
+    <script>swal("Book Found Successfully");</script>
+</div>
+
+<div th:if="${PrintSwal == 'Book_Not_Found'}">
+    <script>swal("Sorry, Book Not Available");</script>
+</div>
+
+<div th:if="${PrintSwal == 'Book_Details_Empty'}">
+    <script>swal("Sorry, Books Not Available");</script>
+</div>
+
+<div th:if="${PrintSwal == 'RBook_Found'}">
+    <script>swal("Book Rate Updated Successfully");</script>
+</div>
+
+<div th:if="${PrintSwal == 'RBook_Not_Found'}">
+    <script>swal("Sorry, Book Not Available");</script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Online Book Store - Home</title>
+    <link th:href="@{/css/menu_style.css}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .introduction {
+            text-align: center;
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        Online Book Store
+    </div>
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/Login">Login</a></li>
+        <li><a href="/User_RegistrationForm">User Registration</a></li>
+    </ul>
+</nav>
+
+<div class="introduction">
+    <h1>Welcome To Online Book Reviews</h1>
+    <p>Explore and evaluate a diverse collection of books on our platform. Here, we celebrate the joy of reading and provide a space for sharing and discovering remarkable literary works.</p>
+    <p>Join our community of book enthusiasts and immerse yourself in the world of literature. Start exploring and rating books today!</p>
+</div>
+
+</body>
+</html>
