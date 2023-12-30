@@ -13,16 +13,6 @@ public class BookRegistration {
 
     String rate;
 
-    String Price;
-
-    public String getPrice() {
-        return Price;
-    }
-
-    public void setPrice(String price) {
-        Price = price;
-    }
-
     public String getBook_title() {
         return Book_title;
     }
