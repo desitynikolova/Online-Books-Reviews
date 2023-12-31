@@ -45,7 +45,7 @@ public class UserRegistration {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+
 	// Методът toString връща символен низ, който съдържа стойностите на всички полета в класа UserRegistration
 	@Override
 	public String toString() {
