@@ -1,6 +1,5 @@
 package com.online.book.store.configuration;
 
-
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
@@ -11,11 +10,10 @@ public class UserRegistration {
 
 	@Id
 	private String email; // полето email се анотира като основен ключ
-
 	private String fullname; // поле за пълното име на потребителя
 	private String password; // поле за паролата на потребителя
-	private Date date; // поле за рожденна дата на потребителя
-	private String gender; // поле за пол (мъж/жена)
+	private Date date; // поле за рожденната дата на потребителя
+	private String gender; // поле за пола (мъж/жена) на потребителя
 	
 	public String getEmail() {
 		return email;
@@ -47,11 +45,12 @@ public class UserRegistration {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
+	
 	// Методът toString връща символен низ, който съдържа стойностите на всички полета в класа UserRegistration
 	@Override
 	public String toString() {
 		return "UserRegistration [email=" + email + ", fullname=" + fullname + ", password=" + password + ", date="
 				+ date + ", gender=" + gender + "]";
 	}
+
 }
