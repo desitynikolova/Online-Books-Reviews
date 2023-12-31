@@ -9,5 +9,9 @@ import com.online.book.store.configuration.UserRegistration;
 public interface UserRepo extends CrudRepository<UserRegistration, String> {
     public UserRegistration findByEmailAndPassword(String email, String password);
 
+    public default UserRegistration findByEmail(String email) {
+        return null;
+    }
+
     List<UserRegistration> findAll();
 }

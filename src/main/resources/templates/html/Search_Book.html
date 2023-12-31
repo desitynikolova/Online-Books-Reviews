@@ -89,7 +89,7 @@
 
     <ul>
         <li><a href="/User_Home">Home - <span th:text="${User}"></span></a></li>
-        <li><a class="active" href="/User_Books">Search Book</a></li>
+        <li><a class="active" href="/User_Books">Books</a></li>
         <li><a href="/">Logout</a></li>
     </ul>
 </nav>
@@ -99,7 +99,7 @@
 <form action="/user_select_operation" method="post" id="form1">
     <button type="submit" name="book_operation" value="Search">Search Book</button>
     <button type="submit" name="book_operation" value="Display">Display Book</button>
-    <button type="submit" name="book_operation" value="R&R">Rate Book</button>
+    <button type="submit" name="book_operation" value="Rate">Rate Book</button>
 </form>
 
 <!-- Search Book -->
@@ -131,7 +131,7 @@
 </div>
 
 <!-- Rate Book -->
-<div th:if="${selectRR == 'RR'}">
+<div th:if="${selectRate == 'Rate'}">
     <h2>Rate By User</h2>
 
     <form class="form" action="/user_Rate_Book" method="post" onsubmit="return validateForm3()" id="Form_Rate">
