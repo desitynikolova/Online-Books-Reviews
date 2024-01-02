@@ -45,7 +45,7 @@ public class UserController {
     // Обработва заявка за показване на книги. Подава потребителската сесия и насочва към Search_Book.
     @RequestMapping("/User_Books")
     public ModelAndView User_Books(String User_Session) {
-        ModelAndView mv = new ModelAndView("Search_Book");
+        ModelAndView mv = new ModelAndView("User_Book_Management");
 
         mv.addObject("User", user_session1);
 
@@ -56,7 +56,7 @@ public class UserController {
     // Подава потребителската сесия и избраната операция.
     @RequestMapping("/user_select_operation")
     public ModelAndView user_select_operation(String book_operation) {
-        ModelAndView mv = new ModelAndView("Search_Book");
+        ModelAndView mv = new ModelAndView("User_Book_Management");
 
         mv.addObject("User", user_session1);
 
@@ -82,7 +82,7 @@ public class UserController {
         if (breg1.isEmpty()) {
             mv.addObject("PrintSwal", "Book_Details_Empty");
 
-            mv.setViewName("Search_Book");
+            mv.setViewName("User_Book_Management");
         } else {
             BookRegistration book = null;
             mv.addObject("BookArray", book);
@@ -95,7 +95,7 @@ public class UserController {
     // Обработва заявка за оценяване на книга. Подава потребителската сесия, заглавието на книгата и оценката.
     @RequestMapping("/user_Rate_Book")
     public ModelAndView user_Rate_Book(String Book_title, String rate) {
-        ModelAndView mv = new ModelAndView("Search_Book");
+        ModelAndView mv = new ModelAndView("User_Book_Management");
 
         mv.addObject("User", user_session1);
 
