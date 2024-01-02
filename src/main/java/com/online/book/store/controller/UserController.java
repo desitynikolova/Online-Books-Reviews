@@ -62,8 +62,6 @@ public class UserController {
 
         if (book_operation.equals("None")) {
             return mv;
-        } else if (book_operation.equals("Search")) {
-            mv.addObject("selectSearch", "Search");
         } else if (book_operation.equals("Display")) {
             mv.addObject("selectDisplay", "Display");
             return User_Book_Details(mv);
@@ -72,25 +70,6 @@ public class UserController {
         }
 
         return mv;
-    }
-
-    // Обработва заявка за търсене на книга. Подава потребителската сесия,
-    // търсеното заглавие на книгата и извежда съобщение за намиране или не на книгата.
-    @RequestMapping("/user_search_Book")
-    public ModelAndView user_search_Book(String Book_title) {
-        ModelAndView mv = new ModelAndView("Search_Book");
-
-        mv.addObject("User", user_session1);
-
-        Optional<BookRegistration> breg1 = brepo.findById(Book_title);
-
-        if (breg1.isPresent()) {
-            mv.addObject("PrintSwal", "Book_Found");
-        } else {
-            mv.addObject("PrintSwal", "Book_Not_Found");
-        }
-        return mv;
-
     }
 
     // Обработва заявка за показване на детайлите на всички книги.

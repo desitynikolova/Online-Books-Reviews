@@ -15,7 +15,7 @@
 <body>
 <nav>
     <div class="logo">
-        Online Book Store
+        Online Book Review
     </div>
 
     <ul>
@@ -28,20 +28,9 @@
 <h2>Choose Book Operation</h2>
 
 <form action="/user_select_operation" method="post" id="form1">
-    <button type="submit" name="book_operation" value="Search">Search Book</button>
     <button type="submit" name="book_operation" value="Display">Display Book</button>
     <button type="submit" name="book_operation" value="Rate">Rate Book</button>
 </form>
-
-<!-- Search Book -->
-<div th:if="${selectSearch == 'Search'}">
-    <h2>Search Book By Title</h2>
-
-    <form class="form" action="/user_search_Book" method="post" onsubmit="return validateForm2()" id="Form_Search">
-        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Mahabharat">
-        <button class="button-operation" type="submit">Search</button>
-    </form>
-</div>
 
 <!-- Display Book -->
 <div th:if="${selectDisplay == 'Display'}">
@@ -78,14 +67,6 @@
         </select>
         <button class="button-operation" type="submit">Rate</button>
     </form>
-</div>
-
-<div th:if="${PrintSwal == 'Book_Found'}">
-    <script>swal("Book Found Successfully");</script>
-</div>
-
-<div th:if="${PrintSwal == 'Book_Not_Found'}">
-    <script>swal("Sorry, Book Not Available");</script>
 </div>
 
 <div th:if="${PrintSwal == 'Book_Details_Empty'}">
