@@ -5,81 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+
     <link rel="stylesheet" th:href="@{/css/menu_style.css}">
+    <link th:href="@{/css/form.css}" rel="stylesheet">
 
-    <style>
-        form {
-            max-width: 350px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-            padding-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 5px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .password i {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-        .submit-btn {
-            text-align: center;
-        }
-
-        input[type="submit"] {
-            background-color: #8b2513;
-            color: white;
-            cursor: pointer;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .submit-btn input:hover {
-            background-color: rgba(139, 37, 32, 0.75);
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        #pass-toggle-btn:hover {
-            color: #555;
-        }
-
-    </style>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
@@ -94,42 +23,36 @@
         <li><a class="active" href="/User_RegistrationForm">User Registration</a></li>
     </ul>
 </nav>
-<form action="/User_Login" method="post">
+<form action="/User_Registration" method="post">
     <h2>Registration Form</h2>
-    <div class="form-group fullname">
+    <div class="input-box fullname">
         <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" name="fullname" value="Test Account" placeholder="Enter your full name">
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name">
     </div>
-    <div class="form-group email">
+    <div class="input-box email">
         <label for="email">Email Address</label>
-        <input type="text" id="email" name="email" value="Test@email.com" placeholder="Enter your email address">
+        <input type="text" id="email" name="email" placeholder="Enter your email address">
     </div>
-    <div class="form-group password">
+    <div class="input-box password">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" value="Test" placeholder="Enter your password">
-        <i id="pass-toggle-btn" class="fas fa-eye"></i>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
     </div>
-    <div class="form-group date">
+    <div class="input-box date">
         <label for="date">Birth Date</label>
-        <input type="date" id="date" name="date" value="1999-12-01" placeholder="Select your date">
+        <input type="date" id="date" name="date" placeholder="Select your date">
     </div>
-    <div class="form-group gender">
+    <div class="input-box gender">
         <label for="gender">Gender</label>
         <select id="gender" name="gender">
             <option value="" selected disabled>Select your gender</option>
-            <option value="Male" selected>Male</option>
+            <option value="Male">Male</option>
             <option value="Female">Female</option>
-            <option value="Other">Other</option>
         </select>
     </div>
-    <div class="form-group submit-btn">
+    <div class="input-box button">
         <input type="submit" value="Registration">
     </div>
 </form>
-<div th:if="${PrintSwal == 'User_Exists'}">
-    <script>swal("User Already Exists");</script>
-</div>
-
 <div th:if="${PrintSwal == 'User_Exists'}">
     <script>swal("User Already Exists");</script>
 </div>

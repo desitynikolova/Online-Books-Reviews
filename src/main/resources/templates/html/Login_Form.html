@@ -4,66 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
+
     <link th:href="@{/css/menu_style.css}" rel="stylesheet">
+    <link th:href="@{/css/form.css}" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        .container {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-            padding-bottom: 20px;
-        }
-
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-box {
-            margin-bottom: 5px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-            text-align: left;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .button input {
-            background-color: #8b2513;
-            color: white;
-            cursor: pointer;
-        }
-
-        .button input:hover {
-            background-color: rgba(139, 37, 32, 0.75);
-        }
-
-
-    </style>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 <body>
@@ -122,6 +67,9 @@
             form.reset();
         }
     }
+
+
 </script>
+
 
 </html>

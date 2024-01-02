@@ -33,21 +33,15 @@ public class HomeController {
         return mv;
     }
 
-    // Този метод приема параметри print, User и Pass.
-    // Логиката в метода проверява дали User и Pass са null.
-    // Ако са null, се добавят стойности по подразбиране ("admin" и "admin"). Накрая се насочва към изглед "Login_Form".
+    // Този метод приема параметри print, User и Pass
+    // насочва към изглед "Login_Form"
     @RequestMapping("/Login")
     public ModelAndView Login(String print, String User, String Pass) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("PrintSwal", print);
 
-        if (User != null && Pass != null) {
-            mv.addObject("User_Name", User);
-            mv.addObject("Pass", Pass);
-        } else {
-            mv.addObject("User_Name", "admin");
-            mv.addObject("Pass", "admin");
-        }
+        mv.addObject("User_Name", User);
+        mv.addObject("Pass", Pass);
 
         mv.setViewName("Login_Form");
 
@@ -94,7 +88,7 @@ public class HomeController {
     }
 
     // Този метод приема параметри ureg, email и password.
-    @RequestMapping("/User_Login")
+    @RequestMapping("/User_Registration")
     public ModelAndView User_Login(UserRegistration ureg,String email, String password)
     {
         ModelAndView mv = new ModelAndView("Registration_Form");
@@ -113,7 +107,7 @@ public class HomeController {
             repo.save(ureg);
             print="Reg_Success";
             mv.addObject("PrintSwal",print);
-            //mv.setViewName("Login_Form");
+
             return Login(print,email,password);
         }
         mv.addObject("PrintSwal",print);
