@@ -30,13 +30,13 @@
         <h2>Login</h2>
         <div class="input-box underline">
             <label for="email">Email Address</label>
-            <input type="text" name="email" id="email" th:value="${User_Name}" placeholder="Enter Your Email"
+            <input type="email" name="email" id="email" th:value="${User_Name}" placeholder="Enter Your Email"
                    required>
         </div>
         <div class="input-box">
             <label for="password">Password</label>
             <input type="password" name="password" th:value="${Pass}" id="password"
-                   placeholder="Enter Your Password" required>
+                   placeholder="Enter Your Password" required minlength="5">
         </div>
         <div class="input-box button">
             <input type="button" value="Login" onclick="Verify()">
@@ -44,32 +44,22 @@
     </form>
 </div>
 
-<div th:if="${PrintSwal == 'User'}">
-    <script>swal("User Login Successfully");</script>
-</div>
-
 <div th:if="${PrintSwal == 'Failed'}">
-    <script>swal("Sorry You entered an incorrect email or password");</script>
+    <script>swal("You have entered an incorrect email or password, or you have not filled out a field");</script>
 </div>
 
 <div th:if="${PrintSwal == 'Reg_Success'}">
     <script>swal("Registration Successful");</script>
 </div>
+
 </body>
 
 <script>
     function Verify() {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-
-        if (email == "" || password == "") {
-            swal("Please fill out this field");
-            return false;
-        } else {
-            var form = document.getElementById("form1");
-            form.submit();
-            form.reset();
-        }
+        var form = document.getElementById("form1");
+        form.submit();
+        form.reset();
     }
 </script>
+
 </html>
