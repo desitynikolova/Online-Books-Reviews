@@ -1,0 +1,63 @@
+.active {
+    color: #8b2513;
+}
+
+h2 {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+}
+
+label {
+    color: white;
+    padding: 20px;
+}
+
+input {
+    padding: 10px;
+    margin-right: 20px;
+}
+
+button {
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #8b2513;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+select,
+.form-control {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.form button {
+    background-color: #8b2513;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-operation {
+    margin-top: -10px;
+}
