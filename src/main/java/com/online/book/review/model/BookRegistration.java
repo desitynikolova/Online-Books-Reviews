@@ -1,4 +1,4 @@
-package com.online.book.store.configuration;
+package com.online.book.review.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

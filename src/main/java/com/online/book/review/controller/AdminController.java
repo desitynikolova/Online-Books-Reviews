@@ -1,20 +1,18 @@
-package com.online.book.store.controller;
+package com.online.book.review.controller;
 
 import java.util.List;
 import java.util.Optional;
 
-import ch.qos.logback.core.model.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.online.book.store.configuration.BookRegistration;
-import com.online.book.store.configuration.UserRegistration;
-import com.online.book.store.repository.BookRepo;
-import com.online.book.store.repository.UserRepo;
+import com.online.book.review.model.BookRegistration;
+import com.online.book.review.model.UserRegistration;
+import com.online.book.review.repository.BookRepo;
+import com.online.book.review.repository.UserRepo;
 
 // Spring контролер (AdminController), който управлява
 // заявки (requests) и визуализации (views) свързани с административната част на онлайн системата за оценяване на книги
@@ -22,33 +20,34 @@ import com.online.book.store.repository.UserRepo;
 // @Controller: Анотация, която указва, че този клас е Spring контролер, отговарящ за обработката на HTTP заявки
 @Controller
 public class AdminController {
-
-	// @Autowired: Анотация, която внедрява обекти от класовете UserRepo и BookRepo
+	// @Autowired: Анотация, която внедрява зависимости в случая обекти от класовете UserRepo и BookRepo
 	@Autowired
 	UserRepo repo;
 
 	@Autowired
 	BookRepo brepo;
 
-	// static public String user_session;
-
-	// Този метод връща обект от тип ModelAndView, който посочва, че ще се използва изглед (view) с име "Admin_View"
+	// Методът ще се извика, когато се направи HTTP заявка към път "/Admin_Home"
+	// След това методът създава обект от класа "ModelAndView" с име(изглед) "Admin_View" и го връща.
+	// Този обект на "ModelAndView" съдържа информация за изгледа и модела.
 	@RequestMapping("/Admin_Home")
 	public ModelAndView Admin_Home() {
 		ModelAndView mv = new ModelAndView("Admin_View");
 		return mv;
 	}
 
-	// Този метод връща обект от тип ModelAndView с изглед "Book_Management"
+	// Методът ще се извика, когато се направи HTTP заявка към път "/Book_Management"
+	// След това методът създава обект от класа "ModelAndView" с име(изглед) "Book_Management" и го връща.
+	// Този обект на "ModelAndView" съдържа информация за изгледа и модела.
 	@RequestMapping("/Book_Management")
 	public ModelAndView Book_Management() {
 		ModelAndView mv = new ModelAndView("Book_Management");
 		return mv;
 	}
 
-	// Този метод приема параметър book_operation от заявката.
-	// Логиката в метода определя какво действие да се предприеме в зависимост от стойността на book_operation.
-	@RequestMapping("/selectoperation")
+	// Методът ще се извика, когато се направи HTTP заявка към път "/selectOperation"
+	// Представя логика за обработка на операции, свързани с управлението на книги
+	@RequestMapping("/selectOperation")
 	public ModelAndView selectoperation(String book_operation) {
 		ModelAndView mv = new ModelAndView("Book_Management");
 
@@ -60,16 +59,14 @@ public class AdminController {
 			mv.addObject("selectDelete", "Delete");
 		} else if (book_operation.equals("Edit")) {
 			List<BookRegistration> bookList = brepo.findAll();
-
 			mv.addObject("selectEdit", "Edit");
 			mv.addObject("bookList", bookList);
 		}
-
 		return mv;
 	}
 
-	// Този метод приема обект от тип BookRegistration като
-	// параметър и съдържа логика за обновяване на информацията за книгата в базата данни
+	// Този метод приема обект от тип BookRegistration с име updatedBook като параметър.
+	// Този обект представя книга, чиито данни трябва да бъдат обновени
 	@RequestMapping("/updateBook")
 	public ModelAndView updateBook(@ModelAttribute BookRegistration updatedBook) {
 		// Използва се BookRepo, за да се запазят промените към книгата
@@ -83,8 +80,9 @@ public class AdminController {
 		return mv;
 	}
 
-	// Този метод приема параметър от тип BookRegistration и стойност на параметъра Book_title
-	@RequestMapping("/book_Add")
+	// Този метод приема обект от тип BookRegistration с име breg като параметър
+	// приема и параметър от тип String - Book_title Book_title
+	@RequestMapping("/addBook")
 	public ModelAndView book_Add(BookRegistration breg, String Book_title) {
 		ModelAndView mv = new ModelAndView("Book_Management");
 
@@ -102,7 +100,7 @@ public class AdminController {
 	}
 
 	// Този метод приема параметър от тип String - Book_title
-	@RequestMapping("/book_Delete")
+	@RequestMapping("/deleteBook")
 	public ModelAndView book_Delete(String Book_title) {
 		ModelAndView mv = new ModelAndView("Book_Management");
 
@@ -134,8 +132,6 @@ public class AdminController {
 			mv.addObject("PrintSwal", "Book_Details_Empty");
 			mv.setViewName("Admin_View");
 		} else {
-			BookRegistration book = null;
-			mv.addObject("BookArray", book);
 			mv.addObject("BookObject", breg1);
 		}
 
@@ -156,8 +152,6 @@ public class AdminController {
 			mv.addObject("PrintSwal", "User_Details_Empty");
 			mv.setViewName("Admin_View");
 		} else {
-			UserRegistration user = null;
-			mv.addObject("UserArray", user);
 			mv.addObject("UserObject", ureg1);
 		}
 

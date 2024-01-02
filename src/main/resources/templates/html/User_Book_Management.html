@@ -7,7 +7,7 @@
 
     <link th:href="@{/css/menu_style.css}" rel="stylesheet">
     <link th:href="@{/css/tables.css}" rel="stylesheet">
-    <link th:href="@{/css/book-management-and-search.css}" rel="stylesheet">
+    <link th:href="@{/css/book-management.css}" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -32,7 +32,7 @@
     <button type="submit" name="book_operation" value="Rate">Rate Book</button>
 </form>
 
-<!-- Display Book -->
+<!-- Показване на книги -->
 <div th:if="${selectDisplay == 'Display'}">
     <table>
         <tr>
@@ -50,7 +50,7 @@
     </table>
 </div>
 
-<!-- Rate Book -->
+<!-- Оценяване на книга -->
 <div th:if="${selectRate == 'Rate'}">
     <h2>Rate By User</h2>
 
@@ -80,6 +80,6 @@
 <div th:if="${PrintSwal == 'RBook_Not_Found'}">
     <script>swal("Sorry, Book Not Available");</script>
 </div>
-</body>
 
+</body>
 </html>

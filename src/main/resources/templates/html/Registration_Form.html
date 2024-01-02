@@ -10,6 +10,8 @@
     <link th:href="@{/css/form.css}" rel="stylesheet">
 
 </head>
+
+<!-- Този скрипт е за включване на SweetAlert2 библиотеката в уеб страницата. SweetAlert2 е JavaScript библиотека за стилно и интерактивно показване на известия (alert-и) в уеб приложения. -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 <body>
@@ -17,12 +19,14 @@
     <div class="logo">
         Online Book Review
     </div>
+
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/Login">Login</a></li>
         <li><a class="active" href="/User_RegistrationForm">User Registration</a></li>
     </ul>
 </nav>
+
 <form action="/User_Registration" method="post">
     <h2>Registration Form</h2>
     <div class="input-box fullname">
@@ -53,10 +57,10 @@
         <input type="submit" value="Registration">
     </div>
 </form>
+
 <div th:if="${PrintSwal == 'User_Exists'}">
     <script>swal("User Already Exists");</script>
 </div>
 
 </body>
-
 </html>

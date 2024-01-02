@@ -1,4 +1,4 @@
-package com.online.book.store;
+package com.online.book.review;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

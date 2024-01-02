@@ -10,7 +10,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<!-- Този скрипт е за включване на SweetAlert2 библиотеката в уеб страницата. SweetAlert2 е JavaScript библиотека за стилно и интерактивно показване на известия (alert-и) в уеб приложения. -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
 <body>
 <nav>
     <div class="logo">
@@ -41,7 +44,6 @@
     </form>
 </div>
 
-
 <div th:if="${PrintSwal == 'User'}">
     <script>swal("User Login Successfully");</script>
 </div>
@@ -70,6 +72,4 @@
         }
     }
 </script>
-
-
 </html>

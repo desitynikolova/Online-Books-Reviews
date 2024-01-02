@@ -1,10 +1,10 @@
-package com.online.book.store.repository;
+package com.online.book.review.repository;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.online.book.store.configuration.UserRegistration;
+import com.online.book.review.model.UserRegistration;
 
 // съхранение на регистрирани потребители
 public interface UserRepo extends CrudRepository<UserRegistration, String> {

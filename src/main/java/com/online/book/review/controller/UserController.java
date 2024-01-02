@@ -1,4 +1,4 @@
-package com.online.book.store.controller;
+package com.online.book.review.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,15 +8,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.online.book.store.configuration.BookRegistration;
-import com.online.book.store.repository.BookRepo;
-import com.online.book.store.repository.UserRepo;
+import com.online.book.review.model.BookRegistration;
+import com.online.book.review.repository.BookRepo;
+import com.online.book.review.repository.UserRepo;
 
-// @Controller: Означава, че този клас е Spring контролер, отговорен за обработването на HTTP заявките.
+// Spring контролер (UserController), който управлява
+// заявки (requests) и визуализации (views) свързани с потребителската част на онлайн системата за оценяване на книги
+
+// @Controller: Анотация, която указва, че този клас е Spring контролер, отговарящ за обработката на HTTP заявки
 @Controller
 public class UserController {
 
-    // @Autowired: Вкарване на зависимости (в този случай, UserRepo и BookRepo)
+    // @Autowired: Анотация, която внедрява зависимости в случая обекти от класовете UserRepo и BookRepo
     @Autowired
     UserRepo repo;
 
@@ -25,6 +28,7 @@ public class UserController {
 
     static public String user_session1 = "User";
 
+    // Методът ще се извика, когато се направи HTTP заявка към път "/User_Home"
     // Обработва заявка за потребителския начален екран.
     // Подава потребителската сесия и съобщение за показване на User_View.
     @RequestMapping("/User_Home")
@@ -42,9 +46,9 @@ public class UserController {
         return mv;
     }
 
-    // Обработва заявка за показване на книги. Подава потребителската сесия и насочва към Search_Book.
+    // Обработва заявка за показване на книги. Подава потребителската сесия и насочва към "/User_Book_Management"
     @RequestMapping("/User_Books")
-    public ModelAndView User_Books(String User_Session) {
+    public ModelAndView User_Books() {
         ModelAndView mv = new ModelAndView("User_Book_Management");
 
         mv.addObject("User", user_session1);
@@ -52,7 +56,7 @@ public class UserController {
         return mv;
     }
 
-    // Обработва заявка за избор на операция (търсене, показване, оценяване) върху книгите.
+    // Обработва заявка за избор на операция (показване, оценяване) върху книгите.
     // Подава потребителската сесия и избраната операция.
     @RequestMapping("/user_select_operation")
     public ModelAndView user_select_operation(String book_operation) {
@@ -81,13 +85,9 @@ public class UserController {
 
         if (breg1.isEmpty()) {
             mv.addObject("PrintSwal", "Book_Details_Empty");
-
             mv.setViewName("User_Book_Management");
         } else {
-            BookRegistration book = null;
-            mv.addObject("BookArray", book);
             mv.addObject("BookObject", breg1);
-
         }
         return mv;
     }

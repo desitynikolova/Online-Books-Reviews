@@ -6,10 +6,13 @@
     <title>Menu</title>
 
     <link th:href="@{/css/menu_style.css}" rel="stylesheet">
-    <link th:href="@{/css/book-management-and-search.css}" rel="stylesheet">
+    <link th:href="@{/css/book-management.css}" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<!-- Този скрипт е за включване на SweetAlert2 библиотеката в уеб страницата. SweetAlert2 е JavaScript библиотека за стилно и интерактивно показване на известия (alert-и) в уеб приложения. -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 <body>
 <nav>
@@ -27,7 +30,7 @@
 
 <h2>Choose Book Operation</h2>
 
-<form action="/selectoperation" method="post" id="form1">
+<form action="/selectOperation" method="post" id="form1">
     <button type="submit" name="book_operation" value="Add">Add a Book</button>
     <button type="submit" name="book_operation" value="Delete">Delete a Book</button>
     <button type="submit" name="book_operation" value="Edit">Edit a Book</button>
@@ -36,7 +39,7 @@
 <div th:if="${selectAdd == 'Add'}" class="form">
     <h2>Book Registration Form</h2>
 
-    <form action="/book_Add" method="post" onsubmit="return validateForm1()" id="Form_Add">
+    <form action="/addBook" method="post" onsubmit="return validateForm1()" id="Form_Add">
         <label>Book Title:</label>
         <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Mahabharat">
 
@@ -75,7 +78,6 @@
 
             <label>Price:</label>
             <input type="text" class="form-control" name="price" th:value="${book.price}" />
-            <!-- Add other input fields as needed -->
 
             <button class="button-operation" type="submit">Update</button>
         </form>
@@ -85,7 +87,7 @@
 <div th:if="${selectDelete == 'Delete'}" class="form">
     <h2>Delete Book By Title</h2>
 
-    <form action="/book_Delete" method="post" onsubmit="return validateForm2()" id="Form_Delete">
+    <form action="/deleteBook" method="post" onsubmit="return validateForm2()" id="Form_Delete">
         <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Mahabharat"><br><br>
 
         <button class="button-operation" type="submit">Delete</button>
