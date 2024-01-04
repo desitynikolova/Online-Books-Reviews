@@ -89,7 +89,7 @@ public class HomeController {
 
     // Този метод приема параметри ureg, email и password.
     @RequestMapping("/User_Registration")
-    public ModelAndView User_Login(UserRegistration ureg,String email, String password)
+    public ModelAndView User_Registration(UserRegistration ureg, String email, String password)
     {
         ModelAndView mv = new ModelAndView("Registration_Form");
 
