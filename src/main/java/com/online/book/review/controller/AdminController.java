@@ -14,8 +14,8 @@ import com.online.book.review.model.UserRegistration;
 import com.online.book.review.repository.BookRepo;
 import com.online.book.review.repository.UserRepo;
 
-// Spring контролер (AdminController), който управлява
-// заявки (requests) и визуализации (views) свързани с административната част на онлайн системата за оценяване на книги
+// Spring контролер (AdminController), който управлява заявки (requests)
+// и визуализации (views) свързани с административната част на онлайн системата за оценяване на книги
 
 // @Controller: Анотация, която указва, че този клас е Spring контролер, отговарящ за обработката на HTTP заявки
 @Controller
