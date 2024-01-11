@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Menu</title>
+    <title>Admin Home</title>
 
     <link th:href="@{/css/menu_style.css}" rel="stylesheet">
     <link th:href="@{/css/introduction.css}" rel="stylesheet">
@@ -39,7 +39,7 @@
     <script>swal("Admin Login Successfully");</script>
 </div>
 
-<!-- в AdminController -> /Book_Details - ако админа иска да види списъка с книги, а няма такива, то изписва "No Books Found" --> 
+<!-- в AdminController -> /Book_Details - ако админа иска да види списъка с книги, а няма такива, то изписва "No Books Found" -->
 <div th:if="${PrintSwal == 'Book_Details_Empty'}">
     <script>swal("No Books Found");</script>
 </div>
