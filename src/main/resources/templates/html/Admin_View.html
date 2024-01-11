@@ -34,17 +34,17 @@
     <p>Join our community of book enthusiasts and immerse yourself in the world of literature. Start exploring and rating books today!</p>
 </div>
 
-// в HomeController -> /VerifyLogin - ако е влязал админа, то изписва "Admin Login Successfully"
+<!-- в HomeController -> /VerifyLogin - ако е влязал админа, то изписва "Admin Login Successfully" -->
 <div th:if="${PrintSwal == 'Admin'}">
     <script>swal("Admin Login Successfully");</script>
 </div>
 
-// в AdminController -> /Book_Details - ако админа иска да види списъка с книги, а няма такива, то изписва "No Books Found"
+<!-- в AdminController -> /Book_Details - ако админа иска да види списъка с книги, а няма такива, то изписва "No Books Found" --> 
 <div th:if="${PrintSwal == 'Book_Details_Empty'}">
     <script>swal("No Books Found");</script>
 </div>
 
-// в AdminController -> /User_Details - ако админа иска да види списъка със съществуващи потребители
+<!-- в AdminController -> /User_Details - ако админа иска да види списъка със съществуващи потребители -->
 <div th:if="${PrintSwal == 'User_Details_Empty'}">
     <script>swal("No Users Found");</script>
 </div>
