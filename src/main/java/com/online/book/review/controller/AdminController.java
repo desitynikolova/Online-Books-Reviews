@@ -38,7 +38,6 @@ public class AdminController {
 
 	// Методът ще се извика, когато се направи HTTP заявка към път "/Book_Management"
 	// След това методът създава обект от класа "ModelAndView" с име(изглед) "Book_Management" и го връща.
-	// Този обект на "ModelAndView" съдържа информация за изгледа и модела.
 	@RequestMapping("/Book_Management")
 	public ModelAndView Book_Management() {
 		ModelAndView mv = new ModelAndView("Book_Management");
@@ -147,7 +146,6 @@ public class AdminController {
 	@RequestMapping("/User_Details")
 	public ModelAndView User_Details() {
 		ModelAndView mv = new ModelAndView("User_Details");
-
 		List<UserRegistration> ureg1 = repo.findAll();
 
 		if (ureg1.isEmpty()) {

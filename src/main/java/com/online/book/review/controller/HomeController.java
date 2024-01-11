@@ -22,8 +22,6 @@ public class HomeController {
 
     String print = null; // променлива, използваща се за съхранение на съобщения (например за успешно влизане, неуспешно влизане и др.)
 
-    static public String user_session; // използва се за съхранение на информация за потребителска сесия
-
     // Методът ще се извика, когато се направи HTTP заявка към път "/"
     // След това методът създава обект от класа "ModelAndView" с име(изглед) "Home" и го връща.
     // Този обект на "ModelAndView" съдържа информация за изгледа и модела.
@@ -72,13 +70,9 @@ public class HomeController {
         // Ако не съществува такъв потребител, се добавя съобщение за неуспешно влизане.
         if (email.equals("admin") && password.equals("admin")) {
             mv.addObject("PrintSwal", "Admin");
-            user_session = "Admin";
             mv.setViewName("Admin_View");
         } else if (user != null) {
-            print = "UserLogin";
-            mv.addObject("User", user.getFullname());
-            user_session = "User";
-            return u1.User_Home(user_session, print);
+            mv.setViewName("User_View");
         } else {
             mv.addObject("PrintSwal", "Failed");
         }

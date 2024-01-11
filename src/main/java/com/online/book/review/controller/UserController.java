@@ -21,43 +21,30 @@ public class UserController {
     @Autowired
     BookRepo brepo;
 
-    static public String user_session1 = "User";
-
     // Методът ще се извика, когато се направи HTTP заявка към път "/User_Home"
     // Обработва заявка за потребителския начален екран.
-    // Подава потребителската сесия и съобщение за показване на User_View.
+    // Подава съобщение за показване на User_View.
     @RequestMapping("/User_Home")
-    public ModelAndView User_Home(String User_Session, String print) {
+    public ModelAndView User_Home(String print) {
         ModelAndView mv = new ModelAndView("User_View");
-
-        if (User_Session != null) {
-            user_session1 = User_Session;
-        }
-
-        mv.addObject("User", user_session1);
 
         mv.addObject("PrintSwal", print);
 
         return mv;
     }
 
-    // Обработва заявка за показване на книги. Подава потребителската сесия и насочва към "/User_Book_Management"
+    // Обработва заявка за показване на книги и насочва към "/User_Book_Management"
     @RequestMapping("/User_Books")
     public ModelAndView User_Books() {
         ModelAndView mv = new ModelAndView("User_Book_Management");
-
-        mv.addObject("User", user_session1);
 
         return mv;
     }
 
     // Обработва заявка за избор на операция (показване, оценяване) върху книгите.
-    // Подава потребителската сесия и избраната операция.
     @RequestMapping("/user_select_operation")
     public ModelAndView user_select_operation(String book_operation) {
         ModelAndView mv = new ModelAndView("User_Book_Management");
-
-        mv.addObject("User", user_session1);
 
         if (book_operation.equals("None")) {
             return mv;
@@ -72,10 +59,9 @@ public class UserController {
     }
 
     // Обработва заявка за показване на детайлите на всички книги.
-    // Подава потребителската сесия и връща модел с информация за книгите.
+    // Връща модел с информация за книгите.
     @RequestMapping("/User_Book_Details")
     public ModelAndView User_Book_Details(ModelAndView mv) {
-
         List<BookRegistration> breg1 = brepo.findAll();
 
         if (breg1.isEmpty()) {
@@ -87,12 +73,10 @@ public class UserController {
         return mv;
     }
 
-    // Обработва заявка за оценяване на книга. Подава потребителската сесия, заглавието на книгата и оценката.
+    // Обработва заявка за оценяване на книга. Подава се заглавието на книгата и оценката.
     @RequestMapping("/user_Rate_Book")
     public ModelAndView user_Rate_Book(String book_title, String rate) {
         ModelAndView mv = new ModelAndView("User_Book_Management");
-
-        mv.addObject("User", user_session1);
 
         Optional<BookRegistration> breg1 = brepo.findById(book_title);
 
