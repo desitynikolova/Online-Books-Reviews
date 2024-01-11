@@ -41,13 +41,13 @@
 
     <form action="/addBook" method="post" onsubmit="return validateForm1()" id="Form_Add">
         <label>Book Title:</label>
-        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Mahabharat">
+        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Dracula">
 
         <label>Author:</label>
-        <input type="text" class="form-control" name="Author" placeholder="Author" value="Shri Krishna">
+        <input type="text" class="form-control" name="Author" placeholder="Author" value="Bram Stoker">
 
         <label>Price:</label>
-        <input type="text" class="form-control" name="Price" placeholder="Price" value="3067"><br><br>
+        <input type="text" class="form-control" name="Price" placeholder="Price" value="15"><br><br>
 
         <button class="button-operation" type="submit">Add</button>
     </form>
@@ -88,7 +88,7 @@
     <h2>Delete Book By Title</h2>
 
     <form action="/deleteBook" method="post" onsubmit="return validateForm2()" id="Form_Delete">
-        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Mahabharat"><br><br>
+        <input type="text" class="form-control" name="Book_title" placeholder="Book title"><br><br>
 
         <button class="button-operation" type="submit">Delete</button>
     </form>
