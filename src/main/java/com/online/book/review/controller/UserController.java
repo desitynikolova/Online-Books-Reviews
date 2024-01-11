@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.online.book.review.model.BookRegistration;
 import com.online.book.review.repository.BookRepo;
-import com.online.book.review.repository.UserRepo;
 
 // Spring контролер (UserController), който управлява
 // заявки (requests) и визуализации (views) свързани с потребителската част на онлайн системата за оценяване на книги
@@ -18,11 +17,6 @@ import com.online.book.review.repository.UserRepo;
 // @Controller: Анотация, която указва, че този клас е Spring контролер, отговарящ за обработката на HTTP заявки
 @Controller
 public class UserController {
-
-    // @Autowired: Анотация, която внедрява зависимости в случая обекти от класовете UserRepo и BookRepo
-    @Autowired
-    UserRepo repo;
-
     @Autowired
     BookRepo brepo;
 
