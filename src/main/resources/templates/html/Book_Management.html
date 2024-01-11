@@ -30,6 +30,7 @@
 
 <h2>Choose Book Operation</h2>
 
+<!-- в AdminController -> /selectOperation -->
 <form action="/selectOperation" method="post" id="form1">
     <button type="submit" name="book_operation" value="Add">Add a Book</button>
     <button type="submit" name="book_operation" value="Delete">Delete a Book</button>
@@ -104,24 +105,28 @@
     }
 </script>
 
+<!-- в AdminController -> /addBook - ако се добави книга, която вече съществува -->
 <div th:if="${PrintSwal == 'Book_Exist'}">
     <script>
         swal("Book Already Exists");
     </script>
 </div>
 
+<!-- в AdminController -> /addBook - ако се добави книга, която не съществува -->
 <div th:if="${PrintSwal == 'Add_Success'}">
     <script>
         swal("Book Registration Successfully");
     </script>
 </div>
 
+<!-- в AdminController -> /deleteBook - ако се изтрие книга със съществуващо заглавие -->
 <div th:if="${PrintSwal == 'Delete_Success'}">
     <script>
         swal("Book Delete Successfully");
     </script>
 </div>
 
+<!-- в AdminController -> /deleteBook - ако се изтрие книга с несъществуващо заглавие -->
 <div th:if="${PrintSwal == 'Delete_Failed'}">
     <script>
         swal("Sorry, Book not Found");

@@ -12,6 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<!-- Този скрипт е за включване на SweetAlert2 библиотеката в уеб страницата. SweetAlert2 е JavaScript библиотека за стилно и интерактивно показване на известия (alert-и) в уеб приложения. -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
 <body>
 <nav>
     <div class="logo">
@@ -54,7 +57,7 @@
 <div th:if="${selectRate == 'Rate'}">
     <h2>Rate By User</h2>
 
-    <form class="form" action="/user_Rate_Book" method="post" onsubmit="return validateForm3()" id="Form_Rate">
+    <form class="form" action="/user_Rate_Book" method="post" id="Form_Rate">
         <label>Choose book by title</label>
         <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Book Tittle">
         <label>User Rating</label>
@@ -69,13 +72,16 @@
     </form>
 </div>
 
+<!-- в UserController -> /User_Book_Details - ако няма налични книги -->
 <div th:if="${PrintSwal == 'Book_Details_Empty'}">
     <script>swal("Sorry, Books Not Available");</script>
 </div>
 
-<div th:if="${PrintSwal == 'RBook_Found'}">
+<!-- в UserController -> /user_Rate_Book - ако се update-не успешно -->
+<div th:if="${PrintSwal == 'RBook_Update'}">
     <script>swal("Book Rate Updated Successfully");</script>
 </div>
+
 
 <div th:if="${PrintSwal == 'RBook_Not_Found'}">
     <script>swal("Sorry, Book Not Available");</script>

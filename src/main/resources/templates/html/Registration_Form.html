@@ -58,6 +58,7 @@
     </div>
 </form>
 
+<!-- в HomeController -> /User_Registration ако същствува вече такъв потребител -->
 <div th:if="${PrintSwal == 'User_Exists'}">
     <script>swal("User Already Exists");</script>
 </div>

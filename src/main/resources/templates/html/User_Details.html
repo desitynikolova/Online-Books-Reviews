@@ -39,7 +39,8 @@
         <th>Date of Birth</th>
         <th>Gender</th>
     </tr>
-    <tr th:each="UserArray : ${UserObject}">
+    <!-- всеки ред представлява един обект (потребител) от списъка UserObject, който е предоставен от AdminController -->
+    <tr th:each="UserArray : ${UserObject}"> <!-- UserObject е списък от обекти (AdminController -> User_Details) -->
         <td th:text="${UserArray.getFullname()}"></td>
         <td th:text="${UserArray.getEmail()}"></td>
         <td th:text="${UserArray.getPassword()}"></td>

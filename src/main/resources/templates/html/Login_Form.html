@@ -44,10 +44,12 @@
     </form>
 </div>
 
+<!-- в HomeController -> /VerifyLogin ако не са вписани правилни данни, или не са попълнени полета -->
 <div th:if="${PrintSwal == 'Failed'}">
     <script>swal("You have entered an incorrect email or password, or you have not filled out a field");</script>
 </div>
 
+<!-- в HomeController -> /User_Registration ако се регистрира успешно потребител -->
 <div th:if="${PrintSwal == 'Reg_Success'}">
     <script>swal("Registration Successful");</script>
 </div>

@@ -34,6 +34,7 @@
         <th>Rating</th>
         <th>Price</th>
     </tr>
+    <!-- всеки ред представлява един обект (книга) от списъка BookObject, който е предоставен от AdminController -->
     <tr th:each="BookArray : ${BookObject}"> <!-- BookObject е списък от обекти (AdminController -> Book_Details) -->
         <td th:text="${BookArray.getBook_title()}"></td>
         <td th:text="${BookArray.getAuthor()}"></td>

@@ -102,7 +102,7 @@ public class UserController {
         Optional<BookRegistration> breg1 = brepo.findById(Book_title);
 
         if (breg1.isPresent()) {
-            mv.addObject("PrintSwal", "RBook_Found");
+            mv.addObject("PrintSwal", "RBook_Update");
             BookRegistration breg = breg1.get();
             breg.setRate(rate);
             brepo.save(breg);
