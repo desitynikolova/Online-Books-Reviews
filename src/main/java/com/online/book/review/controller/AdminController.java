@@ -83,10 +83,10 @@ public class AdminController {
 	// Този метод приема обект от тип BookRegistration с име breg като параметър
 	// приема и параметър от тип String - Book_title Book_title
 	@RequestMapping("/addBook")
-	public ModelAndView book_Add(BookRegistration breg, String Book_title) {
+	public ModelAndView book_Add(BookRegistration breg, String book_title) {
 		ModelAndView mv = new ModelAndView("Book_Management");
 
-		Optional<BookRegistration> breg1 = brepo.findById(Book_title);
+		Optional<BookRegistration> breg1 = brepo.findById(book_title);
 
 		// проверява се дали книга със същото заглавие вече съществува в базата данни
 		if (breg1.isPresent()) {

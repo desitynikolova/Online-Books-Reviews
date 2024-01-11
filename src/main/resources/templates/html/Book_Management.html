@@ -42,7 +42,7 @@
 
     <form action="/addBook" method="post" onsubmit="return validateForm1()" id="Form_Add">
         <label>Book Title:</label>
-        <input type="text" class="form-control" name="Book_title" placeholder="Book title" value="Dracula">
+        <input type="text" class="form-control" name="book_title" placeholder="Book title" value="Dracula">
 
         <label>Author:</label>
         <input type="text" class="form-control" name="Author" placeholder="Author" value="Bram Stoker">
@@ -56,7 +56,7 @@
 
 <script>
     function validateForm1() {
-        let b1 = document.forms["Form_Add"]["Book_title"].value;
+        let b1 = document.forms["Form_Add"]["book_title"].value;
         let b2 = document.forms["Form_Add"]["Author"].value;
         let b3 = document.forms["Form_Add"]["Price"].value;
         if (b1 == "" || b2 == "" || b3 == "") {
@@ -97,7 +97,7 @@
 
 <script>
     function validateForm2() {
-        let b1 = document.forms["Form_Delete"]["Book_title"].value;
+        let b1 = document.forms["Form_Delete"]["book_title"].value;
         if (b1 == "") {
             swal("Book Title must be filled out");
             return false;

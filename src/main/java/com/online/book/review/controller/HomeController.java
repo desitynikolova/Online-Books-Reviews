@@ -39,6 +39,7 @@ public class HomeController {
     @RequestMapping("/Login")
     public ModelAndView Login(String print, String user, String pass) {
         ModelAndView mv = new ModelAndView();
+
         mv.addObject("PrintSwal", print);
 
         mv.addObject("User_Name", user);

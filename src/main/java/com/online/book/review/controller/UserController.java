@@ -94,12 +94,12 @@ public class UserController {
 
     // Обработва заявка за оценяване на книга. Подава потребителската сесия, заглавието на книгата и оценката.
     @RequestMapping("/user_Rate_Book")
-    public ModelAndView user_Rate_Book(String Book_title, String rate) {
+    public ModelAndView user_Rate_Book(String book_title, String rate) {
         ModelAndView mv = new ModelAndView("User_Book_Management");
 
         mv.addObject("User", user_session1);
 
-        Optional<BookRegistration> breg1 = brepo.findById(Book_title);
+        Optional<BookRegistration> breg1 = brepo.findById(book_title);
 
         if (breg1.isPresent()) {
             mv.addObject("PrintSwal", "RBook_Update");

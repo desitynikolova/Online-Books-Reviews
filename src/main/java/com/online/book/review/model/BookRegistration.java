@@ -7,23 +7,23 @@ import jakarta.persistence.Id;
 @Entity
 public class BookRegistration {
     @Id
-    private String Book_title; // декларира поле за съхранение на заглавието на книгата
+    private String book_title; // декларира поле за съхранение на заглавието на книгата
     private String Author; // декларира поле за съхранение на автора на книгата
     private String rate; // декларира поле за съхранение на рейтинга на книгата
     private String Price; // декларира поле за съхранение на цената на книгата
 
     public String getBook_title() {
-        return Book_title;
+        return book_title;
     } // дефинира метод за връщане на стойността на полето Book_title
     public void setBook_title(String book_title) {
-        Book_title = book_title;
+        this.book_title = book_title;
     }  // този метод приема като аргумент новата стойност за Book_title и я присвоява на полето
 
     public String getAuthor() {
         return Author;
     } // дефинира метод за връщане на стойността на полето Author
     public void setAuthor(String author) {
-        Author = author;
+        this.Author = author;
     }  // този метод приема като аргумент новата стойност за Author и я присвоява на полето
 
     public String getRate() {
@@ -37,6 +37,6 @@ public class BookRegistration {
         return Price;
     } // дефинира метод за връщане на стойността на полето price
     public void setPrice(String price) {
-        Price = price;
+        this.Price = price;
     }  // този метод приема като аргумент новата стойност за price и я присвоява на полето
 }
