@@ -81,7 +81,7 @@ public class AdminController {
 	}
 
 	// Този метод приема обект от тип BookRegistration с име breg като параметър
-	// приема и параметър от тип String - Book_title Book_title
+	// приема и параметър от тип String - book_title
 	@RequestMapping("/addBook")
 	public ModelAndView book_Add(BookRegistration breg, String book_title) {
 		ModelAndView mv = new ModelAndView("Book_Management");
@@ -99,17 +99,17 @@ public class AdminController {
 		return mv;
 	}
 
-	// Този метод приема параметър от тип String - Book_title
+	// Този метод приема параметър от тип String - book_title
 	@RequestMapping("/deleteBook")
-	public ModelAndView book_Delete(String Book_title) {
+	public ModelAndView book_Delete(String book_title) {
 		ModelAndView mv = new ModelAndView("Book_Management");
 
-		Optional<BookRegistration> breg1 = brepo.findById(Book_title);
+		Optional<BookRegistration> breg1 = brepo.findById(book_title);
 
-		// Ако книгата съществува (breg1.isPresent()), тя се изтрива от базата данни чрез brepo.deleteById(Book_title)
+		// Ако книгата съществува (breg1.isPresent()), тя се изтрива от базата данни чрез brepo.deleteById(book_title)
 		// В противен случай се добавя съобщение за неуспешно изтриване ("Delete_Failed")
 		if (breg1.isPresent()) {
-			brepo.deleteById(Book_title);
+			brepo.deleteById(book_title);
 			mv.addObject("PrintSwal", "Delete_Success");
 		} else {
 			mv.addObject("PrintSwal", "Delete_Failed");

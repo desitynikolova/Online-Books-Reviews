@@ -45,10 +45,10 @@
         <input type="text" class="form-control" name="book_title" placeholder="Book title" value="Dracula">
 
         <label>Author:</label>
-        <input type="text" class="form-control" name="Author" placeholder="Author" value="Bram Stoker">
+        <input type="text" class="form-control" name="author" placeholder="Author" value="Bram Stoker">
 
         <label>Price:</label>
-        <input type="text" class="form-control" name="Price" placeholder="Price" value="15"><br><br>
+        <input type="text" class="form-control" name="price" placeholder="Price" value="15"><br><br>
 
         <button class="button-operation" type="submit">Add</button>
     </form>
@@ -57,8 +57,8 @@
 <script>
     function validateForm1() {
         let b1 = document.forms["Form_Add"]["book_title"].value;
-        let b2 = document.forms["Form_Add"]["Author"].value;
-        let b3 = document.forms["Form_Add"]["Price"].value;
+        let b2 = document.forms["Form_Add"]["author"].value;
+        let b3 = document.forms["Form_Add"]["price"].value;
         if (b1 == "" || b2 == "" || b3 == "") {
             swal("Please fill out all fields");
             return false;
@@ -89,7 +89,7 @@
     <h2>Delete Book By Title</h2>
 
     <form action="/deleteBook" method="post" onsubmit="return validateForm2()" id="Form_Delete">
-        <input type="text" class="form-control" name="Book_title" placeholder="Book title"><br><br>
+        <input type="text" class="form-control" name="book_title" placeholder="Book title"><br><br>
 
         <button class="button-operation" type="submit">Delete</button>
     </form>
