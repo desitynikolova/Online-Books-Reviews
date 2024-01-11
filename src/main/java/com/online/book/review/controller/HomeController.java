@@ -70,8 +70,7 @@ public class HomeController {
         // Ако съществува потребител със зададения email и password, се смята, че става влизане на потребител. Извиква се метод User_Home от UserController и се предават параметри за потребителско име и съобщение.
         // Ако не съществува такъв потребител, се добавя съобщение за неуспешно влизане.
         if (email.equals("admin") && password.equals("admin")) {
-            print = "Admin";
-            mv.addObject("PrintSwal", print);
+            mv.addObject("PrintSwal", "Admin");
             user_session = "Admin";
             mv.setViewName("Admin_View");
         } else if (user != null) {
@@ -80,8 +79,7 @@ public class HomeController {
             user_session = user.getFullname();
             return u1.User_Home(user_session, print);
         } else {
-            print = "Failed";
-            mv.addObject("PrintSwal", print);
+            mv.addObject("PrintSwal", "Failed");
         }
 
         return mv;
