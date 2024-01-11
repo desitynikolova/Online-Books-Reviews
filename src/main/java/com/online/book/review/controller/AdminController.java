@@ -54,7 +54,9 @@ public class AdminController {
 		if (book_operation.equals("None")) {
 			return mv;
 		} else if (book_operation.equals("Add")) {
-			mv.addObject("selectAdd", "Add");
+			// addObject е метод на обекта от класа ModelAndView
+			// Този клас ModelAndView се използва за прехвърляне на данни от контролер към изглед (view) във Spring Boot
+			mv.addObject("selectAdd", "Add"); // Book_Management -> form Book Registration
 		} else if (book_operation.equals("Delete")) {
 			mv.addObject("selectDelete", "Delete");
 		} else if (book_operation.equals("Edit")) {
@@ -86,7 +88,7 @@ public class AdminController {
 	public ModelAndView book_Add(BookRegistration breg, String book_title) {
 		ModelAndView mv = new ModelAndView("Book_Management");
 
-		Optional<BookRegistration> breg1 = brepo.findById(book_title);
+		Optional<BookRegistration> breg1 = brepo.findById(book_title); // с Optional може да се върне null без нужда от грешки
 
 		// проверява се дали книга със същото заглавие вече съществува в базата данни
 		if (breg1.isPresent()) {
