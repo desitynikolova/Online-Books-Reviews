@@ -17,6 +17,7 @@ import com.online.book.review.repository.BookRepo;
 // @Controller: Анотация, която указва, че този клас е Spring контролер, отговарящ за обработката на HTTP заявки
 @Controller
 public class UserController {
+    // @Autowired: Анотация, която внедрява зависимости в случая обект от класа BookRepo
     @Autowired
     BookRepo brepo;
 

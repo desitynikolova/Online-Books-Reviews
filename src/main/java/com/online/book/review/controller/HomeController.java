@@ -78,7 +78,6 @@ public class HomeController {
             print = "UserLogin";
             mv.addObject("User", user.getFullname());
             user_session = "User";
-            user_session = user.getFullname();
             return u1.User_Home(user_session, print);
         } else {
             mv.addObject("PrintSwal", "Failed");
